@@ -469,7 +469,7 @@ static LEGACY_ENTRY * AddLegacyEntry(IN CHAR16 *LoaderTitle, IN REFIT_VOLUME *Vo
 
     LegacyTitle = AllocateZeroPool(256 * sizeof(CHAR16));
     if (LegacyTitle != NULL)
-       SPrint(LegacyTitle, 255, L"Boot %s from %s", LoaderTitle, VolDesc);
+       SPrint(LegacyTitle, 255, L"%s", LoaderTitle);
     if (IsInSubstring(LegacyTitle, GlobalConfig.DontScanVolumes)) {
        MyFreePool(LegacyTitle);
        return NULL;

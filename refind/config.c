@@ -828,7 +828,7 @@ static VOID AddSubmenu(LOADER_ENTRY *Entry, REFIT_FILE *File, REFIT_VOLUME *Volu
             if ((Volume != NULL) && (Volume->IsReadable) && (Volume->RootDir)) {
                MyFreePool(SubEntry->me.Title);
                SubEntry->me.Title        = AllocateZeroPool(256 * sizeof(CHAR16));
-               SPrint(SubEntry->me.Title, 255, L"Boot %s from %s", (Title != NULL) ? Title : L"Unknown", Volume->VolName);
+               SPrint(SubEntry->me.Title, 255, L"%s", (Title != NULL) ? Title : L"Unknown");
                SubEntry->me.BadgeImage   = Volume->VolBadgeImage;
                SubEntry->Volume          = Volume;
             } // if volume is readable
@@ -890,7 +890,7 @@ static LOADER_ENTRY * AddStanzaEntries(REFIT_FILE *File, REFIT_VOLUME *Volume, C
 
    Entry->Title           = StrDuplicate(Title);
    Entry->me.Title        = AllocateZeroPool(256 * sizeof(CHAR16));
-   SPrint(Entry->me.Title, 255, L"Boot %s from %s", (Title != NULL) ? Title : L"Unknown", CurrentVolume->VolName);
+   SPrint(Entry->me.Title, 255, L"%s", (Title != NULL) ? Title : L"Unknown");
    Entry->me.Row          = 0;
    Entry->me.BadgeImage   = CurrentVolume->VolBadgeImage;
    Entry->Volume          = CurrentVolume;
@@ -911,7 +911,7 @@ static LOADER_ENTRY * AddStanzaEntries(REFIT_FILE *File, REFIT_VOLUME *Volume, C
             if ((CurrentVolume != NULL) && (CurrentVolume->IsReadable) && (CurrentVolume->RootDir)) {
                MyFreePool(Entry->me.Title);
                Entry->me.Title        = AllocateZeroPool(256 * sizeof(CHAR16));
-               SPrint(Entry->me.Title, 255, L"Boot %s from %s", (Title != NULL) ? Title : L"Unknown", CurrentVolume->VolName);
+               SPrint(Entry->me.Title, 255, L"%s", (Title != NULL) ? Title : L"Unknown");
                Entry->me.BadgeImage   = CurrentVolume->VolBadgeImage;
                Entry->Volume          = CurrentVolume;
             } // if volume is readable
